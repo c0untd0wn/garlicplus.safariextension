@@ -26,6 +26,7 @@ searchAllSizeImage = () ->
   if this.readyState == 4
     elem = $(this.responseText).find(".rg_di > a").first().attr("href")
     imageUrl = getQueryVariable(elem)
+    imageUrl = decodeURIComponent(decodeURIComponent(imageUrl))
 
     if menu_id == "search_largest"
       window.location.replace(imageUrl)
