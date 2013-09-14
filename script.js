@@ -2,9 +2,9 @@
 var genericOnClick, id;
 
 genericOnClick = function(info, tab) {
-  console.log("item " + item.menuItemId + " was clicked");
-  console.log("info: " + (JSON.stringify(info)));
-  return console.log("tab: " + (JSON.stringify(tab)));
+  return chrome.tabs.create({
+    url: "popup.html"
+  });
 };
 
 id = chrome.contextMenus.create({
