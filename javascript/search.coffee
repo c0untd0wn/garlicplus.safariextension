@@ -22,7 +22,6 @@ searchImage = () ->
       $("#img_loading").hide()
       $("#img_progress").html("Sorry! No Image Found!")
 
-
 searchAllSizeImage = () ->
   if this.readyState == 4
     elem = $(this.responseText).find(".rg_di > a").first().attr("href")
