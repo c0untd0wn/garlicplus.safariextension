@@ -10,12 +10,16 @@ searchImage = () ->
   console.log(this)
   if this.readyState == 4
     link_dom = $(this.responseText).find(".qb-mslc .gl a")[0]
-    link_href = link_dom.href
-    link_href_arr = link_href.split("/")
-    link = "https://www.google.com/" + link_href_arr[link_href_arr.length-1] + "&dpr=1"
-    console.log(link)
-    window.location = link
-    #runXHR(link, searchAllSizeImage)  
+
+    if link_dom
+      link_href = link_dom.href
+      link_href_arr = link_href.split("/")
+      link = "https://www.google.com/" + link_href_arr[link_href_arr.length-1] + "&dpr=1"
+      console.log(link)
+      window.location = link
+      #runXHR(link, searchAllSizeImage)  
+    else
+      console.log('no image')
 
 searchAllSizeImage = () ->
   console.log(this)
