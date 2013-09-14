@@ -7,14 +7,21 @@ genericOnClick = (info, tab) ->
 
 chrome.contextMenus.create {
   "id": "search_largest"
-  "title": "Get Largest Same image on Google"
+  "title": "Open Largest Same image on Google"
+  "contexts": ["image"]
+  "onclick": genericOnClick
+}
+
+chrome.contextMenus.create {
+  "id": "download_largest"
+  "title": "Download Largest Same image on Google"
   "contexts": ["image"]
   "onclick": genericOnClick
 }
 
 chrome.contextMenus.create {
   "id": "search_google"
-  "title": "Search Same image on Google"
+  "title": "Search Same images with Different size on Google"
   "contexts": ["image"]
   "onclick": genericOnClick
 }

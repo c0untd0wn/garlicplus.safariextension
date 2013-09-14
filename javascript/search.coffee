@@ -14,10 +14,10 @@ searchImage = () ->
       link = "https://www.google.com/" + link_href_arr[link_href_arr.length-1]
       console.log(link)
 
-      if menu_id == "search_largest"
-       runXHR(link, searchAllSizeImage)
+      if menu_id == "search_largest" or menu_id == "download_largest"
+        runXHR(link, searchAllSizeImage)
       else if menu_id == "search_google"
-        window.location = link
+        window.location.replace(link)
     else
       $("#img_loading").hide()
       $("#img_progress").html("Sorry! No Image Found!")
@@ -27,7 +27,16 @@ searchAllSizeImage = () ->
   if this.readyState == 4
     elem = $(this.responseText).find(".rg_di > a").first().attr("href")
     imageUrl = getQueryVariable(elem)
-    window.location.replace(imageUrl)
+
+    if menu_id == "search_largest"
+      window.location.replace(imageUrl)
+    else if menu_id == "download_largest"
+      chrome.downloads.download {
+        "url": imageUrl
+        "saveAs": true
+      }, () ->
+        window.location.replace(imageUrl)
+        
 
 
 getQueryVariable = (query) ->
