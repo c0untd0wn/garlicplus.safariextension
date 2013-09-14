@@ -1,2 +1,9 @@
 *.swp
 DS_Store
+*.js
+javascript/search.js
+javascript/script.js
+javascript/inject.js
+javascript/coffee-script.js
+javascript/coffee.cmd
+javascript/coffee.wsf
