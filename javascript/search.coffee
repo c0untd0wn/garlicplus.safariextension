@@ -2,11 +2,29 @@ console.log "Hello Search!"
 
 default_search = "https://www.google.com/searchbyimage?safe=off&hl=ko&site=search&image_url=http://xbox-360.mediagen.fr/red-dead-redemption-xbox-ps3-4_019401C700007820.jpg" 
 
-xhr = new XMLHttpRequest()
-xhr.open("GET", default_search, true)
-xhr.onreadystatechange = () ->
-  console.log(xhr.readyState)
-  if xhr.readyState == 4
-    res = $.parseHTML(xhr.responseText)
-    console.log(res) 
-xhr.send()
+searchImage = () ->
+  console.log(this)
+  if this.readyState == 4
+    link_dom = $(this.responseText).find(".qb-mslc .gl a")[0]
+    link_href = link_dom.href
+    link_href_arr = link_href.split("/")
+    link = "https://www.google.com/" + link_href_arr[link_href_arr.length-1] + "&dpr=1"
+    console.log(link)
+    window.location = link
+    #runXHR(link, searchAllSizeImage)  
+
+searchAllSizeImage = () ->
+  console.log(this)
+  if this.readyState == 4
+    console.log(this)
+
+
+runXHR = (url, callback) ->
+  xhr = new XMLHttpRequest()
+  xhr.onreadystatechange = callback
+  xhr.open("GET", url, true)
+  xhr.send()
+
+
+#Search Image Page
+runXHR(default_search, searchImage)
