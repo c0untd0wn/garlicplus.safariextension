@@ -1,4 +1,6 @@
 img_url = window.location.hash.split("#")[1]
+menu_id = window.location.hash.split("#")[2]
+
 search_url = "https://www.google.com/searchbyimage?safe=off&hl=ko&site=search&image_url=#{img_url}"
   
 searchImage = () ->
@@ -8,11 +10,13 @@ searchImage = () ->
     if link_dom
       link_href = link_dom.href
       link_href_arr = link_href.split("/")
-      link = "https://www.google.com/" + link_href_arr[link_href_arr.length-1] + "&garlicplus=true"
+      link = "https://www.google.com/" + link_href_arr[link_href_arr.length-1] + "&garlicplus=" + menu_id
+
       console.log(link)
       window.location = link
     else
-      dom_img_progress.html("No Image Found!")
+      $("#img_loading").hide()
+      $("#img_progress").html("Sorry! No Image Found!")
 
 
 runXHR = (url, callback) ->

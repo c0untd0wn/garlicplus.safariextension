@@ -1,12 +1,5 @@
-genericOnClick = (info, tab) ->
-  #console.log("item #{info.menuItemId} was clicked")
-  console.log("info: #{JSON.stringify(info)}")
- 
-  if "#{info.menuItemId}" == "search_largest"
-    tab_url = "search.html##{info.srcUrl}"
-  else if "#{info.menuItemId}" == "search_google"
-    tab_url = "search.html##{info.srcUrl}" 
-
+genericOnClick = (info, tab) -> 
+  tab_url = "search.html##{info.srcUrl}##{info.menuItemId}"
   chrome.tabs.create {
     url: tab_url
   }

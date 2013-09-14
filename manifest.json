@@ -15,7 +15,7 @@
     {
       "matches": ["http://*.google.com/*", "https://*.google.com/*"],
       "js": ["javascript/jquery-2.0.3.min.js", "javascript/inject.js"],
-      "include_globs": ["*garlicplus*"]
+      "include_globs": ["*garlicplus=search_largest*"]
     }
   ],
   "background": {
