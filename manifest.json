@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "High-quality Image Downloader",
-  "description": "Downloads the highest resolution photo from the google image search",
+  "name": "GarlicPlus Image Downloader",
+  "description": "Search/Download image with Different Resolution using Google Search",
   "version": "1.0",
 
   "permissions": [
