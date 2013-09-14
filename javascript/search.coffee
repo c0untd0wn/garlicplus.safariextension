@@ -16,7 +16,7 @@ searchImage = () ->
 
       if menu_id == "search_largest"
        runXHR(link, searchAllSizeImage)
-      else
+      else if menu_id == "search_google"
         window.location = link
     else
       $("#img_loading").hide()
