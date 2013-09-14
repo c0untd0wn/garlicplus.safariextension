@@ -1,6 +1,10 @@
 console.log "Hello Search!"
 
-default_search = "https://www.google.com/searchbyimage?safe=off&hl=ko&site=search&image_url=http://xbox-360.mediagen.fr/red-dead-redemption-xbox-ps3-4_019401C700007820.jpg" 
+hash = window.location.hash.split("#")[1]
+console.log hash
+
+default_search = "https://www.google.com/searchbyimage?safe=off&hl=ko&site=search&image_url=#{hash}"
+  #http://xbox-360.mediagen.fr/red-dead-redemption-xbox-ps3-4_019401C700007820.jpg"
 
 searchImage = () ->
   console.log(this)
