@@ -14,7 +14,7 @@
   "content_scripts": [
     {
       "matches": ["http://*.google.com/*", "https://*.google.com/*"],
-      "js": ["javascript/inject.js"],
+      "js": ["javascript/jquery-2.0.3.min.js", "javascript/inject.js"],
       "include_globs": ["*garlicplus*"]
     }
   ],
