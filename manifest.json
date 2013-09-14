@@ -11,6 +11,13 @@
     "http://*.google.com/",
     "https://*.google.com/"
   ],
+  "content_scripts": [
+    {
+      "matches": ["http://*.google.com/*", "https://*.google.com/*"],
+      "js": ["javascript/inject.js"],
+      "include_globs": ["*garlicplus*"]
+    }
+  ],
   "background": {
     "scripts": ["javascript/script.js"]
   }

@@ -17,7 +17,7 @@
       if (link_dom) {
         link_href = link_dom.href;
         link_href_arr = link_href.split("/");
-        link = "https://www.google.com/" + link_href_arr[link_href_arr.length - 1] + "&dpr=1";
+        link = "https://www.google.com/" + link_href_arr[link_href_arr.length - 1] + "&garlicplus=true";
         console.log(link);
         return window.location = link;
       } else {
