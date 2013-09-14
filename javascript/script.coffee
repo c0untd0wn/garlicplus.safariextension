@@ -3,11 +3,11 @@ genericOnClick = (info, tab) ->
   console.log("info: #{JSON.stringify(info)}")
   console.log("tab: #{JSON.stringify(tab)}")
   chrome.tabs.create {
-    url: "popup.html"
+    url: "search.html"
   }
 
 id = chrome.contextMenus.create {
-  "title": "Test context menu item"
+  "title": "Search Same images on Google"
   "contexts": ["image"]
   "onclick": genericOnClick
 }

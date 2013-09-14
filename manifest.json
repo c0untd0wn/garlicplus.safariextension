@@ -8,7 +8,8 @@
   "permissions": [
     "contextMenus",
     "tabs",
-    "http://*.google.com/"
+    "http://*.google.com/",
+    "https://*.google.com/"
   ],
   "background": {
     "scripts": ["javascript/script.js"]
