@@ -1,35 +1,22 @@
 ﻿(function() {
-  var default_search, hash, runXHR, searchAllSizeImage, searchImage;
+  var img_url, runXHR, searchImage, search_url;
 
-  console.log("Hello Search!");
+  img_url = window.location.hash.split("#")[1];
 
-  hash = window.location.hash.split("#")[1];
-
-  console.log(hash);
-
-  default_search = "https://www.google.com/searchbyimage?safe=off&hl=ko&site=search&image_url=" + hash;
+  search_url = "https://www.google.com/searchbyimage?safe=off&hl=ko&site=search&image_url=" + img_url;
 
   searchImage = function() {
     var link, link_dom, link_href, link_href_arr;
-    console.log(this);
     if (this.readyState === 4) {
       link_dom = $(this.responseText).find(".qb-mslc .gl a")[0];
       if (link_dom) {
         link_href = link_dom.href;
         link_href_arr = link_href.split("/");
         link = "https://www.google.com/" + link_href_arr[link_href_arr.length - 1] + "&garlicplus=true";
-        console.log(link);
-        return window.location = link;
+        return console.log(link);
       } else {
-        return console.log('no image');
+        return dom_img_progress.html("No Image Found!");
       }
-    }
-  };
-
-  searchAllSizeImage = function() {
-    console.log(this);
-    if (this.readyState === 4) {
-      return console.log(this);
     }
   };
 
@@ -41,6 +28,8 @@
     return xhr.send();
   };
 
-  runXHR(default_search, searchImage);
+  $(document).ready(function() {
+    return runXHR(search_url, searchImage);
+  });
 
 }).call(this);

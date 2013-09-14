@@ -1,13 +1,7 @@
-console.log "Hello Search!"
-
-hash = window.location.hash.split("#")[1]
-console.log hash
-
-default_search = "https://www.google.com/searchbyimage?safe=off&hl=ko&site=search&image_url=#{hash}"
-  #http://xbox-360.mediagen.fr/red-dead-redemption-xbox-ps3-4_019401C700007820.jpg"
-
+img_url = window.location.hash.split("#")[1]
+search_url = "https://www.google.com/searchbyimage?safe=off&hl=ko&site=search&image_url=#{img_url}"
+  
 searchImage = () ->
-  console.log(this)
   if this.readyState == 4
     link_dom = $(this.responseText).find(".qb-mslc .gl a")[0]
 
@@ -16,14 +10,9 @@ searchImage = () ->
       link_href_arr = link_href.split("/")
       link = "https://www.google.com/" + link_href_arr[link_href_arr.length-1] + "&garlicplus=true"
       console.log(link)
-      window.location = link
+      #window.location = link
     else
-      console.log('no image')
-
-searchAllSizeImage = () ->
-  console.log(this)
-  if this.readyState == 4
-    console.log(this)
+      dom_img_progress.html("No Image Found!")
 
 
 runXHR = (url, callback) ->
@@ -34,4 +23,5 @@ runXHR = (url, callback) ->
 
 
 #Search Image Page
-runXHR(default_search, searchImage)
+$(document).ready ->
+  runXHR(search_url, searchImage)
