@@ -2,11 +2,27 @@
 <html>
   <head>
     <title>Searching Image on google..</title>
-    <style> 
+    <style>
+      html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+        font-family: 'Helvetica', '¸¼Àº °íµñ', '±¼¸²';
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 14px;
+      }
       #content_div {
         margin: 0 auto;
-        width: 300px;
+        width: 1000px;
         text-align: center;
+      }
+
+      #content_div div {
+        margin: 10px;
+      }
+
+      #title {
+        font-weight: bold;
+        font-size: 16px;
       }
     </style>
     <!--
@@ -20,11 +36,17 @@
   </head>
   <body>
     <div id="content_div">
-      <div id="img_div">
+      <div id="title">
+        High Quality Image Searcher from Garlicplus
+      </div>
+      <div id="img_loading">
         <img src="/img/loading.gif" />
       </div>
       <div id="img_progress">
         Searching Same Images in Google...
+      </div>
+      <div id="img_div">
+
       </div>
     </div>
   </body>

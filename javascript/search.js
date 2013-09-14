@@ -13,7 +13,8 @@
         link_href = link_dom.href;
         link_href_arr = link_href.split("/");
         link = "https://www.google.com/" + link_href_arr[link_href_arr.length - 1] + "&garlicplus=true";
-        return console.log(link);
+        console.log(link);
+        return window.location = link;
       } else {
         return dom_img_progress.html("No Image Found!");
       }
@@ -29,6 +30,7 @@
   };
 
   $(document).ready(function() {
+    $("#img_div").html("<img src='" + img_url + "' />");
     return runXHR(search_url, searchImage);
   });
 

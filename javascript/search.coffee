@@ -10,7 +10,7 @@ searchImage = () ->
       link_href_arr = link_href.split("/")
       link = "https://www.google.com/" + link_href_arr[link_href_arr.length-1] + "&garlicplus=true"
       console.log(link)
-      #window.location = link
+      window.location = link
     else
       dom_img_progress.html("No Image Found!")
 
@@ -24,4 +24,5 @@ runXHR = (url, callback) ->
 
 #Search Image Page
 $(document).ready ->
+  $("#img_div").html("<img src='" + img_url + "' />")
   runXHR(search_url, searchImage)
