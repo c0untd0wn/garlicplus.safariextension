@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+
+  "name": "High-quality Image Downloader",
+  "description": "Downloads the highest resolution photo from the google image search",
+  "version": "1.0",
+
+  "permissions": [],
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  }
+}
+  
