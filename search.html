@@ -2,7 +2,13 @@
 <html>
   <head>
     <title>Searching Image on google..</title>
-
+    <style> 
+      #content_div {
+        margin: 0 auto;
+        width: 300px;
+        text-align: center;
+      }
+    </style>
     <!--
       - JavaScript and HTML must be in separate files: see our Content Security
       - Policy documentation[1] for details and explanation.
@@ -13,14 +19,13 @@
     <script src="javascript/search.js"></script>
   </head>
   <body>
-    <div id="img_div">
-    
-    </div>
-    <div id="img_progress">
-      Searching Same Images in Google...
-    </div>
-    <div id="img_iframe">
-      
+    <div id="content_div">
+      <div id="img_div">
+        <img src="/img/loading.gif" />
+      </div>
+      <div id="img_progress">
+        Searching Same Images in Google...
+      </div>
     </div>
   </body>
 </html>
