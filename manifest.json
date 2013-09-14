@@ -1,13 +1,14 @@
 {
   "manifest_version": 2,
 
-  "name": "GarlicPlus Image Downloader",
-  "description": "Search/Download image with Different Resolution using Google Search",
+  "name": "GarlicPlus Image Search",
+  "description": "Search/Download Image with Different Resolution using Google Image Search",
   "version": "1.0",
 
   "permissions": [
     "contextMenus",
     "tabs",
+    "downloads",
     "http://*.google.com/",
     "https://*.google.com/"
   ],
