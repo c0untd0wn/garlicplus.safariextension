@@ -1,8 +1,9 @@
 img_url = window.location.hash.split("#")[1]
 menu_id = window.location.hash.split("#")[2]
 
-search_url = "https://www.google.com/searchbyimage?safe=off&hl=ko&site=search&image_url=#{img_url}"
-  
+#search_url = "https://www.google.com/searchbyimage?safe=off&hl=ko&site=search&image_url=#{img_url}"
+search_url = "https://www.google.com/searchbyimage?newwindow=1&biw=1350&bih=628&site=search&image_url=#{img_url}&sa=X&ei=ukE0Up60CseFiQeH9ID4CA&ved=0CCcQ9Q8oAA"
+
 searchImage = () ->
   if this.readyState == 4
     link_dom = $(this.responseText).find(".qb-mslc .gl a")[0]
@@ -10,13 +11,31 @@ searchImage = () ->
     if link_dom
       link_href = link_dom.href
       link_href_arr = link_href.split("/")
-      link = "https://www.google.com/" + link_href_arr[link_href_arr.length-1] + "&garlicplus=" + menu_id
-
+      link = "https://www.google.com/" + link_href_arr[link_href_arr.length-1]
       console.log(link)
-      window.location = link
+
+      if menu_id == "search_largest"
+       runXHR(link, searchAllSizeImage)
+      else
+        window.location = link
     else
       $("#img_loading").hide()
       $("#img_progress").html("Sorry! No Image Found!")
+
+
+searchAllSizeImage = () ->
+  if this.readyState == 4
+    elem = $(this.responseText).find(".rg_di > a").first().attr("href")
+    imageUrl = getQueryVariable(elem)
+    window.location.replace(imageUrl)
+
+
+getQueryVariable = (query) ->
+  vars = query.split("&")
+
+  for arg in vars
+    argval = arg.split("=")
+    return argval[1] if argval[0] == "imgurl"
 
 
 runXHR = (url, callback) ->
